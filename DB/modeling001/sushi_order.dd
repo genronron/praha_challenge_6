@@ -1,0 +1,44 @@
+table orders {
+  orderId varchar [pk, ref: < ordersDetails.orderId]
+  orderName varchar [not null]
+  tellNumber varchar [not null]
+  isPayed boolean [not null]
+  updateUser varchar [not null]
+  updateDate timestamp [not null]
+}
+
+table ordersDetails {
+  orderId varchar [pk]
+  productCode varchar [pk]
+  quantity int [not null, default:0]
+  isWasabiQuantity int [not null, default:0]
+  amount decimal
+  updateUser varchar [not null]
+  updateDate timestamp [not null]
+}
+
+table singleProducts {
+  productCode varchar [pk]
+  productName varchar [unique, not null]
+  productPrice decimal [not null]
+  updateUser varchar [not null]
+  updateDate timestamp [not null]
+}
+
+table setProducts {
+  productCode varchar [pk]
+  productName varchar [unique, not null]
+  productPrice decimal [not null]
+  updateUser varchar [not null]
+  updateDate timestamp [not null]
+}
+
+
+table tax {
+  dateFrom date [pk]
+  dateTo date
+  tax decimal [not null]
+  updateUser varchar [not null]
+  updateDate timestamp [not null]
+}
+
