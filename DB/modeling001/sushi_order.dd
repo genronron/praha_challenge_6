@@ -1,6 +1,8 @@
+// dbdiagramで開くとER図ができる
 table orders {
   orderId varchar [pk, ref: < ordersDetails.orderId]
   orderName varchar [not null]
+  orderdate date [not null]
   tellNumber varchar [not null]
   isPayed boolean [not null]
   updateUser varchar [not null]
@@ -10,15 +12,16 @@ table orders {
 table ordersDetails {
   orderId varchar [pk]
   productCode varchar [pk]
+  productName varchar [not null]
   quantity int [not null, default:0]
   isWasabiQuantity int [not null, default:0]
-  amount decimal
+  amount decimal [not null]
   updateUser varchar [not null]
   updateDate timestamp [not null]
 }
 
 table singleProducts {
-  productCode varchar [pk]
+  productCode varchar [pk, ref: > ordersDetails.productCode]
   productName varchar [unique, not null]
   productPrice decimal [not null]
   updateUser varchar [not null]
@@ -26,7 +29,7 @@ table singleProducts {
 }
 
 table setProducts {
-  productCode varchar [pk]
+  productCode varchar [pk, ref: > ordersDetails.productCode]
   productName varchar [unique, not null]
   productPrice decimal [not null]
   updateUser varchar [not null]
@@ -36,8 +39,8 @@ table setProducts {
 
 table tax {
   dateFrom date [pk]
-  dateTo date
-  tax decimal [not null]
+  dateTo date [pk]
+  tax decimal [pk]
   updateUser varchar [not null]
   updateDate timestamp [not null]
 }
