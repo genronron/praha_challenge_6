@@ -7,7 +7,6 @@
 
 table orders {
   orderId varchar [pk, ref: < ordersDetails.orderId]
-  // orderName varchar [not null]
   orderdate date [not null]
   ordererName varchar [not null]
   tellNumber varchar [not null]
