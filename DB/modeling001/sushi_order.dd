@@ -1,8 +1,15 @@
+// 課題1の解答
 // dbdiagramで開くとER図ができる
+// https://dbdiagram.io/d
+
+// DBML
+// https://www.dbml.org/docs/#project-definition
+
 table orders {
   orderId varchar [pk, ref: < ordersDetails.orderId]
-  orderName varchar [not null]
+  // orderName varchar [not null]
   orderdate date [not null]
+  ordererName varchar [not null]
   tellNumber varchar [not null]
   isPayed boolean [not null]
   updateUser varchar [not null]
@@ -14,7 +21,7 @@ table ordersDetails {
   productCode varchar [pk]
   productName varchar [not null]
   quantity int [not null, default:0]
-  isWasabiQuantity int [not null, default:0]
+  wasabiQuantity int [not null, default:0]
   amount decimal [not null]
   updateUser varchar [not null]
   updateDate timestamp [not null]
@@ -37,7 +44,7 @@ table setProducts {
 }
 
 
-table tax {
+table taxes {
   dateFrom date [pk]
   dateTo date [pk]
   tax decimal [pk]
