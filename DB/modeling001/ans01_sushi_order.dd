@@ -27,7 +27,7 @@ table ordersDetails {
 }
 
 table singleProducts {
-  productCode varchar [pk, ref: > ordersDetails.productCode]
+  productCode varchar [pk, ref: < ordersDetails.productCode]
   productName varchar [unique, not null]
   productPrice decimal [not null]
   updateUser varchar [not null]
@@ -35,7 +35,7 @@ table singleProducts {
 }
 
 table setProducts {
-  productCode varchar [pk, ref: > ordersDetails.productCode]
+  productCode varchar [pk, ref: < ordersDetails.productCode]
   productName varchar [unique, not null]
   productPrice decimal [not null]
   updateUser varchar [not null]
