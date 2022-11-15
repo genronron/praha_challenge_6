@@ -26,22 +26,13 @@ table ordersDetails {
   updateDate timestamp [not null]
 }
 
-table singleProducts {
+table products {
   productCode varchar [pk, ref: < ordersDetails.productCode]
   productName varchar [unique, not null]
   productPrice decimal [not null]
   updateUser varchar [not null]
   updateDate timestamp [not null]
 }
-
-table setProducts {
-  productCode varchar [pk, ref: < ordersDetails.productCode]
-  productName varchar [unique, not null]
-  productPrice decimal [not null]
-  updateUser varchar [not null]
-  updateDate timestamp [not null]
-}
-
 
 table taxes {
   dateFrom date [pk]
