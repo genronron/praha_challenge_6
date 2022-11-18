@@ -5,46 +5,32 @@
 // DBML
 // https://www.dbml.org/docs/#project-definition
 
-table orders {
-  orderId varchar [pk, ref: < ordersDetails.orderId]
-  orderdate date [not null]
-  ordererName varchar [not null]
-  tellNumber varchar [not null]
+table order {
+  id varchar(12) [pk, ref: < orderDetail.orderId]
+  phoneNumber varchar(13) [not null]
   isPayed boolean [not null]
-  updateUser varchar [not null]
-  updateDate timestamp [not null]
 }
 
-table ordersDetails {
-  orderId varchar [pk]
-  productCode varchar [pk]
-  productName varchar [not null]
-  quantity int [not null, default:0]
-  wasabiQuantity int [not null, default:0]
-  size varchar [not null, default:00]
-  amount decimal [not null]
-  updateUser varchar [not null]
-  updateDate timestamp [not null]
+table orderDetail {
+  orderId varchar(12) [not null]
+  productId int [not null]
+  productCount int [not null]
+  isWasabi boolean [not null]
+  sushiRiceSizeId int [not null]
 }
 
-table products {
-  productCode varchar [pk, ref: < ordersDetails.productCode]
-  productName varchar [unique, not null]
-  productPrice decimal [not null]
-  updateUser varchar [not null]
-  updateDate timestamp [not null]
+table product {
+  id int [pk, ref: < orderDetail.productId]
+  name varchar(100) [unique, not null]
+  price decimal(5,0) [not null]
 }
 
-table sizes {
-  sizeCode varchar [pk, note:'00:普通,01:小, 02:大', ref: < ordersDetails.size]
-  sizeName varchar
+table orderer {
+  phoneNumber varchar(13) [pk, ref: < order.phoneNumber]
+  name varchar(100) [not null]
 }
 
-table taxes {
-  dateFrom date [pk]
-  dateTo date [pk]
-  tax decimal [pk]
-  updateUser varchar [not null]
-  updateDate timestamp [not null]
+table sushiRiceSize {
+  id int [pk, ref: < orderDetail.sushiRiceSizeId]
+  description varchar(30) [unique, not null]
 }
-
