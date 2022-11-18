@@ -32,5 +32,5 @@ table orderer {
 
 table sushiRiceSize {
   id int [pk, ref: < orderDetail.sushiRiceSizeId]
-  description varchar(30) [unique, not null]
+  name varchar(30) [unique, not null]
 }
