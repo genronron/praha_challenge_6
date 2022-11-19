@@ -6,7 +6,7 @@
 [注文表](https://github.com/praha-inc/praha-challenge-templates/blob/master/db/design/sushi.png)
 
 ## ER図
-![ER図](ans01_sushi_order_ER.png)
+![ER図](ans01/ans01_sushi_order_ER.png)
 
 ### ER図への補足
 ####  カーディナリティ(dbでは表現できないので)
@@ -20,5 +20,5 @@ orderDetail : product
 0以上 : 1
 
 ## データイメージ
-![データイメージ](ans01_snapshot006.png)
+![データイメージ](ans01/ans01_snapshot006.png)
 
