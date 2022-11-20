@@ -20,5 +20,5 @@ orderDetail : product
 0以上 : 1
 
 ## データイメージ
-![データイメージ](ans01/ans01_snapshot006.png)
+![データイメージ](ans01/ans01_snapshot007.png)
 

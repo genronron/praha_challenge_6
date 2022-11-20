@@ -7,7 +7,7 @@
 
 table order {
   id varchar(12) [pk, ref: < orderDetail.orderId]
-  phoneNumber varchar(13) [not null]
+  ordererId int [not null]
   isPayed boolean [not null]
 }
 
@@ -25,8 +25,7 @@ table product {
 }
 
 table orderer {
-  phoneNumber varchar(13) [pk, ref: < order.phoneNumber]
+  id int [pk, ref: < order.ordererId]
   name varchar(100) [not null]
+  phoneNumber varchar(13)
 }
-
-
