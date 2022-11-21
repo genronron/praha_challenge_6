@@ -1,0 +1,49 @@
+// 課題1の解答
+// dbdiagramで開くとER図ができる
+// https://dbdiagram.io/d
+
+// DBML
+// https://www.dbml.org/docs/#project-definition
+
+table order {
+  id varchar(12) [pk, ref: < orderDetail.orderId]
+  ordererId int [not null]
+  isPayed boolean [not null]
+}
+
+table orderDetail {
+  orderId varchar(12) [not null]
+  productId int [not null]
+  productCount int [not null]
+  isWasabi boolean [not null]
+  sushiRiceSizeId int [not null]
+  sushiRiceTypeId int [not null]
+}
+
+table product {
+  id int [pk, ref: < orderDetail.productId]
+  name varchar(100) [unique, not null]
+  price decimal(5,0) [not null]
+  productTypeId int [not null]
+}
+
+table orderer {
+  id int [pk, ref: < order.ordererId]
+  name varchar(100) [not null]
+  phoneNumber varchar(13)
+}
+
+table sushiRiceSize {
+  id int [pk, ref: < orderDetail.sushiRiceSizeId]
+  name varchar(30) [unique, not null]
+}
+
+table sushiRiceType {
+  id int [pk, ref: < orderDetail.sushiRiceTypeId]
+  name varchar(30) [unique, not null]
+}
+
+table productType {
+  id int [pk, ref: < product.productTypeId]
+  name varchar(30) [unique, not null]
+}
