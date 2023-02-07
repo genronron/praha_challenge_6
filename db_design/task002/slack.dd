@@ -1,0 +1,40 @@
+// dbdiagram.ioで表示
+// https://dbdiagram.io/home
+table message {
+  id int [pk, not null]
+  channelId int [ref: > channel.id, not null]
+  threadId int [ref: > thread.id, not null]
+  userId int [ref: > user.id, not null]
+  createDate datetime [not null]
+  content nvarchar(4000) [not null]
+}
+
+table thread {
+  id int [pk, not null]
+}
+
+table user {
+  id int [pk, not null]
+  workspaceId int [ref: > workspace.id, not null]
+  name nvarchar(50) [not null]
+}
+
+table channel {
+  id int [pk, not null]
+  workspaceId int [ref: > workspace.id, not null]
+  name nvarchar(200) [not null]
+}
+
+table workspace {
+  id int [pk, not null]
+  name nvarchar(200) [not null]
+}
+
+table channelMember {
+  channelId int [unique, ref: > channel.id, not null]
+  userId int [unique, ref: > user.id, not null]
+}
+
+
+
+
