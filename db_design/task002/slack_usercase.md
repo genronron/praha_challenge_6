@@ -322,7 +322,7 @@
     FROM
     	(SELECT * FROM channelMember WHERE userId = UUID_TO_BIN('27ec302c-63d3-5602-5402-53eac3829917')) AS cm	
     	INNER JOIN
-      (SELECT * FROM message WHERE userId = UUID_TO_BIN('27ec302c-63d3-5602-5402-53eac3829917')) AS ms
+      message AS ms
     	ON cm.channelId = ms.channelId
     WHERE
     /* 	cm.userId = 55
