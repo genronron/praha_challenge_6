@@ -111,9 +111,9 @@
     SELECT 
     	ms.*
     FROM
-    	channelMember AS cm	
+    	(SELECT * FROM channelMember WHERE userId = 55) AS cm	
     	INNER JOIN
-      message AS ms
+      (SELECT * FROM message WHERE userId = 55) AS ms
     	ON cm.channelId = ms.channelId
     WHERE
     	cm.userId = 55
