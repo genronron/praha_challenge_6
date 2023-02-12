@@ -8,7 +8,7 @@ CREATE TABLE `message` (
 );
 
 CREATE TABLE `thread` (
-  `id` binary(16) PRIMARY KEY NOT NULL AUTO_INCREMENT
+  `id` binary(16) PRIMARY KEY NOT NULL
 );
 
 CREATE TABLE `user` (
