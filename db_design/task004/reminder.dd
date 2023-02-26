@@ -1,0 +1,29 @@
+// リマインダーの登録
+// バッチでの配信
+// リマインダーの確認(依頼者)
+// リマインダーの確認(被依頼者)
+// リマインダーの完了
+table reminder {
+  id binary(16) [pk, not null]
+  createDate datetime [not null]
+  startDate datetime [not null]
+  content nvarchar(1000) [not null]
+  remindertype nvarchar(200) [not null]
+  statusId tinyint [not null]
+}
+
+table reminderStatus {
+  id tinyint [pk, not null, ref: > reminder.statusId]
+  explain nvarchar(30) [not null]
+}
+
+table reminderDestinationUser {
+  reminderId binary(16) [not null, ref: > reminder.id]
+  UserId binary(16) [not null, ref: > user.id]
+}
+
+table user {
+  id binary(16) [pk, not null]
+  name nvarchar(200) [not null]
+}
+
