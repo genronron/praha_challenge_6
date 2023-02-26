@@ -4,5 +4,5 @@
 ## DDL
 [DDL](slack_DDL.sql "DDL")
 ## ユースケース
-[ユースケース&クエリ](slack_usercase.md "ユースケース&クエリ")
+[ユースケース&クエリ](slack_usecase.md "ユースケース&クエリ")
 
